@@ -34,6 +34,10 @@ return {
     event = "VeryLazy",
   },
   {
+    "AlexvZyl/nordic.nvim",
+    event = "VeryLazy",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "everforest",
