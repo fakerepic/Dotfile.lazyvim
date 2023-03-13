@@ -6,3 +6,6 @@ debug
 foo.*
 *.log
 data
+stylua.toml
+lazy-lock.json
+LICENSE
