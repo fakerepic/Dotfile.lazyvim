@@ -3,7 +3,11 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       highlight = { enable = true },
-      indent = { enable = true },
+      indent = {
+        -- enable = true,
+        -- disable = { "python" },
+        disable = true,
+      },
       context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = {
         "bash",
@@ -21,6 +25,7 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "cpp", --edited
       },
     },
   },

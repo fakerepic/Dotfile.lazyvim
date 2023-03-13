@@ -36,4 +36,12 @@ return {
       },
     },
   },
+  {
+    "mg979/vim-visual-multi",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      vim.g.VM_case_setting = "sensitive"
+      vim.g.VM_theme = "nord"
+    end,
+  },
 }

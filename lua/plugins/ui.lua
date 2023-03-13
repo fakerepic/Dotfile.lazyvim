@@ -1,18 +1,29 @@
 return {
   {
     "mini.indentscope",
-    enabled = true,
+    -- enabled = false,
     opts = {
       draw = {
-        animation = require("mini.indentscope")
-          .gen_animation
-          .none(),
+        animation = require("mini.indentscope").gen_animation.none(),
       },
     },
   },
 
   {
     "indent-blankline.nvim",
-    enabled = true,
+    -- enabled = false,
+    opts = { char = " " },
+  },
+  -- {
+  --   "echasnovski/mini.animate",
+  --   opts = {
+  --     cursor = {
+  --       enable = false,
+  --     },
+  --   },
+  -- },
+  {
+    "nvim-notify",
+    enabled = false,
   },
 }
