@@ -2,6 +2,7 @@ return {
   {
     "nvim-lspconfig",
     opts = {
+      autoformat = false,
       servers = {
         --   texlab = {},
         clangd = {

@@ -5,23 +5,26 @@
 vim.opt.relativenumber = false
 vim.opt.conceallevel = 0
 
-require("lazyvim.plugins.lsp.format").autoformat = false
+vim.o.pumblend = 12
 
-vim.g.python3_host_prog = "/Users/younglong/miniconda3/bin/python"
+vim.g.python3_host_prog = "/Users/younglong/miniconda3/bin/python" -- python3 env
+vim.o.fillchars = "eob: " -- remove the symbol of eol
 
 -- neovide config --
-vim.o.guifont = "FiraCode Nerd Font:h15"
+if vim.g.neovide then
+  -- vim.o.guifont = "FiraCode Nerd Font:h15"
+  vim.o.guifont = "Monolisa:h15"
+  -- -- Helper function for transparency formatting
+  -- local alpha = function()
+  --   return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+  -- end
+  -- -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
+  -- vim.g.neovide_transparency = 0.85
+  -- vim.g.transparency = 0.8
+  -- vim.g.neovide_background_color = "#0f1117" .. alpha()
+  vim.g.neovide_input_macos_alt_is_meta = true
 
--- -- Helper function for transparency formatting
--- local alpha = function()
---   return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
--- end
--- -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
--- vim.g.neovide_transparency = 0.85
--- vim.g.transparency = 0.8
--- vim.g.neovide_background_color = "#0f1117" .. alpha()
-vim.g.neovide_input_macos_alt_is_meta = true
+  vim.g.neovide_confirm_quit = true
 
-vim.g.neovide_confirm_quit = true
-
-vim.g.neovide_cursor_trail_size = 0.0
+  vim.g.neovide_cursor_trail_size = 0.0
+end

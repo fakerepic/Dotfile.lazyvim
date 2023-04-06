@@ -1,51 +1,39 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    -- hidden = function()
-    --   local cmp = require("cmp")
-    --   if cmp == nil then
-    --     return
-    --   end
-    --
-    --   cmp.event:on("menu_opened", function()
-    --     vim.b.copilot_suggestion_hidden = true
-    --   end)
-    --
-    --   cmp.event:on("menu_closed", function()
-    --     vim.b.copilot_suggestion_hidden = false
-    --   end)
-    -- end,
-
     opts = {
       suggestion = {
         enabled = true,
-        -- auto_trigger = true,
+        auto_trigger = false,
         keymap = {
           accept = "<C-A>",
           dismiss = "<C-D>",
-          next = "<C-]",
-          prev = "<C-[>",
+          next = "<C-C>",
         },
         -- When `auto_trigger` is `false`, use the `next` or `prev` keymap to trigger copilot suggestion.
       },
       panel = { enabled = true },
-      -- filetypes = {
-      --   lua = true,
-      --   markdown = true,
-      --   cpp = true,
-      --   python = true,
-      --   javascript = true,
-      --   typescript = true,
-      --   html = true,
-      --   css = true,
-      --   json = true,
-      --   yaml = true,
-      --   ["*"] = false,
-      -- },
+      filetypes = {
+        lua = true,
+        rust = true,
+        markdown = true,
+        cpp = true,
+        c = true,
+        java = true,
+        python = true,
+        javascript = true,
+        typescript = true,
+        html = true,
+        css = true,
+        json = true,
+        yaml = true,
+        toml = true,
+        sh = true,
+        zsh = true,
+        fish = true,
+        ["*"] = false,
+      },
     },
-  },
-  {
-    "nvim-cmp",
   },
   {
     "jackMort/ChatGPT.nvim",
@@ -74,6 +62,9 @@ return {
   },
   {
     "dpayne/CodeGPT.nvim",
+    opts = {
+      max_line_length = 300,
+    },
     keys = {
       { "<leader>cg" },
     },
