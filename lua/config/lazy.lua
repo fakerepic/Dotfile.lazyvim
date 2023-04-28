@@ -15,6 +15,8 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" }, --have a try!!!
     { import = "lazyvim.plugins.extras.coding.copilot" }, --have a try!!!
+    { import = "lazyvim.plugins.extras.dap.core" }, --have a try!!!
+    { import = "lazyvim.plugins.extras.util.project" }, --have a try!!!
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -34,9 +36,10 @@ require("lazy").setup({
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
+        "matchit",
+        "matchparen",
         -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
@@ -44,4 +47,5 @@ require("lazy").setup({
       },
     },
   },
+  ui = { border = "rounded" },
 })

@@ -8,7 +8,15 @@ return {
         -- disable = { "python" },
         disable = true,
       },
-      context_commentstring = { enable = true, enable_autocmd = false },
+      context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+        config = {
+          cpp = "// %s",
+          mma = "// %s",
+          wl = "// %s",
+        },
+      },
       ensure_installed = {
         "bash",
         "help",

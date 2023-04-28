@@ -1,4 +1,5 @@
 return {
+  { "Shatur/neovim-ayu", event = "VeryLazy" },
   { "rose-pine/neovim", name = "rose-pine", event = "VeryLazy" },
   { "atelierbram/Base2Tone-nvim", event = "VeryLazy" },
   { "rmehri01/onenord.nvim", event = "VeryLazy" },
@@ -79,10 +80,59 @@ return {
     },
   },
   {
+    "loctvl842/monokai-pro.nvim",
+    event = "VeryLazy",
+    opts = {
+      transparent_background = false,
+      terminal_colors = true,
+      devicons = true, -- highlight the icons of `nvim-web-devicons`
+      styles = {
+        comment = { italic = true },
+        keyword = { italic = true }, -- any other keyword
+        type = { italic = true }, -- (preferred) int, long, char, etc
+        storageclass = { italic = true }, -- static, register, volatile, etc
+        structure = { italic = true }, -- struct, union, enum, etc
+        parameter = { italic = true }, -- parameter pass in function
+        annotation = { italic = true },
+        tag_attribute = { italic = true }, -- attribute of tag in reactjs
+      },
+      filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
+      -- Enable this will disable filter option
+      day_night = {
+        enable = false, -- turn off by default
+        day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+        night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+      },
+      inc_search = "background", -- underline | background
+      background_clear = {
+        -- "float_win",
+        "toggleterm",
+        "telescope",
+        "which-key",
+        "renamer",
+      }, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree"
+      plugins = {
+        bufferline = {
+          underline_selected = false,
+          underline_visible = false,
+        },
+        indent_blankline = {
+          context_highlight = "default", -- default | pro
+          context_start_underline = false,
+        },
+      },
+      ---@param c Colorscheme
+      override = function(c) end,
+    },
+  },
+  {
     "LazyVim/LazyVim",
+    -- opts = { colorscheme = "rose-pine-moon" },
+    -- opts = { colorscheme = "catppuccin-frappe" },
+    opts = { colorscheme = "catppuccin-macchiato" },
     -- opts = { colorscheme = "gruvbox-material" },
     -- opts = { colorscheme = "everforest" },
-    opts = { colorscheme = "onenord" },
+    -- opts = { colorscheme = "onenord" },
     -- opts = { colorscheme = "dawnfox" },
   },
   {

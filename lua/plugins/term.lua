@@ -5,6 +5,7 @@ return {
     "akinsho/toggleterm.nvim",
     -- keys = "<leader>t",
     keys = { { "<C-q>", "<cmd>ToggleTerm<cr>", desc = "Terminal" } },
+    keys = { { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal" } },
 
     opts = {
       active = true,
