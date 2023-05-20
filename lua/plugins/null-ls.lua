@@ -6,10 +6,10 @@ return {
       return {
         sources = {
           -- nls.builtins.formatting.prettier,
-          -- nls.builtins.formatting.latexindent,
+          nls.builtins.formatting.latexindent,
           nls.builtins.formatting.autopep8,
           nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.flake8,
+          -- nls.builtins.diagnostics.flake8,
         },
       }
     end,

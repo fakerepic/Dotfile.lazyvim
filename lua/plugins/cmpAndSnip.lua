@@ -37,58 +37,70 @@ return {
       })
     end,
   },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      local cmp = require("cmp")
+      cmp.setup({
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+      })
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { "onsails/lspkind.nvim" },
+    opts = function(_, opts)
+      local kind_icons = {
+        Text = "",
+        Method = "󰆧",
+        Function = "󰊕",
+        Constructor = "",
+        Field = "󰇽",
+        Variable = "󰂡",
+        Class = "󰠱",
+        Interface = "",
+        Module = "",
+        Property = "󰜢",
+        Unit = "",
+        Value = "󰎠",
+        Enum = "",
+        Keyword = "󰌋",
+        Snippet = "",
+        Color = "󰏘",
+        File = "󰈙",
+        Reference = "",
+        Folder = "󰉋",
+        EnumMember = "",
+        Constant = "󰏿",
+        Struct = "",
+        Event = "",
+        Operator = "󰆕",
+        TypeParameter = "󰅲",
+      }
+      opts.window = {
+        completion = {
+          col_offset = -3,
+          side_padding = 0,
+        },
+      }
+      opts.formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          local icons = require("lazyvim.config").icons.kinds
+          if not kind_icons[vim_item.kind] and icons[vim_item.kind] then
+            vim_item.kind = icons[vim_item.kind] .. vim_item.kind
+          end
+          local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = " " .. (strings[1] or "") .. " "
+          -- kind.menu = "    (" .. (strings[2] or "") .. ")"
 
-  -- Use <tab> for completion and snippets (supertab)
-  -- -- first: disable default <tab> and <s-tab> behavior in LuaSnip
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   keys = function()
-  --     return {}
-  --   end,
-  -- },
-  -- then: setup supertab in cmp
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   dependencies = {
-  --     "hrsh7th/cmp-emoji",
-  --   },
-  --   ---@param opts cmp.ConfigSchema
-  --   opts = function(_, opts)
-  --     local has_words_before = function()
-  --       unpack = unpack or table.unpack
-  --       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  --       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  --     end
-  --
-  --     local luasnip = require("luasnip")
-  --     local cmp = require("cmp")
-  --
-  --     opts.mapping = vim.tbl_extend("force", opts.mapping, {
-  --       ["<Tab>"] = cmp.mapping(function(fallback)
-  --         if cmp.visible() then
-  --           cmp.select_next_item()
-  --           -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-  --           -- they way you will only jump inside the snippet region
-  --         elseif luasnip.expand_or_jumpable() then
-  --           luasnip.expand_or_jump()
-  --         elseif has_words_before() then
-  --           cmp.complete()
-  --         else
-  --           fallback()
-  --         end
-  --       end, { "i", "s" }),
-  --       ["<S-Tab>"] = cmp.mapping(function(fallback)
-  --         if cmp.visible() then
-  --           cmp.select_prev_item()
-  --         elseif luasnip.jumpable(-1) then
-  --           luasnip.jump(-1)
-  --         else
-  --           fallback()
-  --         end
-  --       end, { "i", "s" }),
-  --     })
-  --   end,
-  -- },
-
-  -- add latex snippets for LuaSnip
+          return kind
+        end,
+      }
+    end,
+  },
 }

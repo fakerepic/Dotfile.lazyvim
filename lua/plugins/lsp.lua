@@ -7,12 +7,17 @@ return {
       servers = {
         --   texlab = {},
         typst_lsp = {},
+        -- clangd = {},
         clangd = {
           mason = false, --use local clangd
           -- cmd = { "clangd" },
-          -- on_attach = on_attach,
-          capabilities = { offsetEncoding = "utf-8" },
         },
+      },
+
+      setup = {
+        clangd = function(_, opts)
+          opts.capabilities.offsetEncoding = { "utf-16" }
+        end,
       },
     },
   },
