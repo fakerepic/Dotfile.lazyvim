@@ -1,4 +1,14 @@
 return {
+  {
+    "akinsho/bufferline.nvim",
+    opts = function(_, opts)
+      opts.options.offsets = {
+        {
+          filetype = "neo-tree",
+        },
+      }
+    end,
+  },
   -- use bordered window for nvim-cmp
   {
     "nvim-lspconfig",
@@ -160,10 +170,8 @@ return {
           font = "+4", -- (10% increase per step)
         },
       },
-      on_open = function(win)
-      end,
-      on_close = function()
-      end,
+      on_open = function(win) end,
+      on_close = function() end,
     },
   },
 }

@@ -31,7 +31,7 @@ return {
         sh = true,
         zsh = true,
         fish = true,
-        typst = false,
+        -- typst = false,
         -- ["*"] = false,
       },
     },

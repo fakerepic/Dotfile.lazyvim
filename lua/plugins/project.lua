@@ -50,6 +50,7 @@ return {
         rust = "cargo run",
         mma = "cd $dir && wolframscript -f $fileName",
         make = "cd $dir && make",
+        typst = "cd $dir && (open -a Skim $(basename $fileName .typ).pdf || typst $fileName)",
       },
     },
   },

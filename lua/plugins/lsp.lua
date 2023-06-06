@@ -6,7 +6,9 @@ return {
       autoformat = false,
       servers = {
         --   texlab = {},
-        typst_lsp = {},
+        typst_lsp = {
+          settings = { exportPdf = "onType"}
+        },
         -- clangd = {},
         clangd = {
           mason = false, --use local clangd

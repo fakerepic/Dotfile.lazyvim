@@ -6,14 +6,15 @@ return {
   },
   {
     "lervag/vimtex",
-    opt = false,
-    lazy = false,
-    config = function()
+    -- opt = false,
+    -- lazy = false,
+    init = function()
       -- vim.opt.conceallevel = 1
       -- vim.g.tex_conceal = "abdmg"
       vim.g.tex_flavor = "latex"
       vim.g.vimtex_view_method = "skim"
       vim.g.vimtex_view_skim_sync = 1
+      vim.g.vimtex_syntax_enabled = 0
 
       -- vim.g.vimtex_view_method = "texshop"
       -- vim.g.vimtex_view_texshop_sync = 1
@@ -46,7 +47,7 @@ return {
         desc = "Stop compile tex",
       },
     },
-    config = function()
+    init = function()
       -- vim.g.neotex_pdflatex_alternative = "xelatex"
       -- vim.g.neotex_pdflatex_add_options = "-output-driver='xdvipdfmx -z3'"
       vim.g.neotex_delay = 200
@@ -55,11 +56,11 @@ return {
   },
   {
     "andymass/vim-matchup",
-    setup = function()
+    init = function()
       -- may set any options here
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
-      -- vim.g.matchup_override_vimtex = 1
-      -- vim.g.matchup_matchparen_deferred = 1
+      vim.g.matchup_override_vimtex = 1
+      vim.g.matchup_matchparen_deferred = 1
     end,
   },
 }
