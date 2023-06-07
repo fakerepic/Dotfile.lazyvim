@@ -49,6 +49,8 @@ return {
         cpp = "cd $dir && g++ -g -std=c++17 $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt",
         rust = "cargo run",
         mma = "cd $dir && wolframscript -f $fileName",
+        make = "cd $dir && make",
+        typst = "cd $dir && (open -a Skim $(basename $fileName .typ).pdf || typst $fileName)",
       },
     },
   },

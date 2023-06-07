@@ -2,7 +2,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        disable = { "latex" }
+      },
       indent = {
         -- enable = true,
         -- disable = { "python" },

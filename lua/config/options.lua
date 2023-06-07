@@ -5,12 +5,7 @@
 vim.opt.relativenumber = false
 vim.opt.conceallevel = 0
 
-vim.o.pumblend = 12
-
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
--- vim.g.netrw_banner = 0
--- not work
+vim.o.pumblend = 0
 
 vim.g.python3_host_prog = "/Users/younglong/miniconda3/bin/python" -- python3 env
 vim.o.fillchars = "eob: " -- remove the symbol of eol

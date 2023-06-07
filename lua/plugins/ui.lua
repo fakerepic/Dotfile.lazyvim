@@ -1,18 +1,15 @@
 return {
-  -- use bordered window for nvim-cmp
   {
-
-    "hrsh7th/nvim-cmp",
+    "akinsho/bufferline.nvim",
     opts = function(_, opts)
-      local cmp = require("cmp")
-      cmp.setup({
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+      opts.options.offsets = {
+        {
+          filetype = "neo-tree",
         },
-      })
+      }
     end,
   },
+  -- use bordered window for nvim-cmp
   {
     "nvim-lspconfig",
     opts = function(_, opts)
@@ -32,10 +29,10 @@ return {
           -- border = "rounded", --works, but not nessessary
           win_options = {
             winhighlight = {
-              -- Normal = "NoiceCmdlinePopup",
-              -- FloatBorder = "NoiceNotify",
-              Normal = "Normal",
-              FloatBorder = "Normal",
+              Normal = "NoiceCmdlinePopup",
+              FloatBorder = "NoiceNotify",
+              -- Normal = "Normal",
+              -- FloatBorder = "Normal",
             },
             winblend = vim.o.pumblend,
           },
@@ -64,10 +61,10 @@ return {
     "gitsigns.nvim",
     -- enabled = false,
     keys = {
-      -- { "<leader>ug", ":Gitsigns toggle_signs<CR>", "toggle signs" },
-      { "<leader>ug", ":Gitsigns toggle_linehl<CR>", "toggle signs" },
-      -- { "<leader>gul", ":Gitsigns toggle_linehl<CR>", "toggle linehl" },
-      -- { "<leader>gun", ":Gitsigns toggle_numhl<CR>", "toggle numhl" },
+      { "<leader>ug", "<cmd>Gitsigns toggle_signs<CR>", "toggle signs" },
+      -- { "<leader>ug", "<cmd>Gitsigns toggle_linehl<CR>", "toggle signs" },
+      -- { "<leader>gul", "<cmd>Gitsigns toggle_linehl<CR>", "toggle linehl" },
+      -- { "<leader>gun", "<cmd>Gitsigns toggle_numhl<CR>", "toggle numhl" },
     },
     opts = {
       signcolumn = false,
@@ -82,6 +79,12 @@ return {
         section_separators = { "", "" },
       },
       extensions = { "nvim-tree", "quickfix" },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { "filename", "filetype", "encoding", "fileformat" },
+        lualine_y = { "progress", "location" },
+      },
     },
   },
   {
@@ -107,6 +110,68 @@ return {
         enforce_regular_tabs = true,
         -- always_show_bufferline = true,
       },
+    },
+  },
+  {
+    "folke/zen-mode.nvim",
+    keys = {
+      { "<leader>z", "<cmd>ZenMode<CR>", desc = "zen mode" },
+    },
+    opts = {
+      window = {
+        backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        -- backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        width = 0.95, -- width of the Zen window
+        height = 0.95, -- height of the Zen window
+        -- by default, no options are changed for the Zen window
+        -- uncomment any of the options below, or add other vim.wo options you want to apply
+        options = {
+          -- signcolumn = "no", -- disable signcolumn
+          -- number = false, -- disable number column
+          relativenumber = false, -- disable relative numbers
+          cursorline = false, -- disable cursorline
+          -- cursorcolumn = false, -- disable cursor column
+          -- foldcolumn = "0", -- disable fold column
+          list = false, -- disable whitespace characters
+        },
+      },
+      plugins = {
+        -- disable some global vim options (vim.o...)
+        -- comment the lines to not apply the options
+        options = {
+          enabled = true,
+          ruler = false, -- disables the ruler text in the cmd line area
+          showcmd = false, -- disables the command in the last line of the screen
+        },
+        lualine = { enabled = false }, -- disables the lualine statusline
+        twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+        gitsigns = { enabled = true }, -- disables git signs
+        tmux = { enabled = false }, -- disables the tmux statusline
+        -- this will change the font size on kitty when in zen mode
+        -- to make this work, you need to set the following kitty options:
+        -- - allow_remote_control socket-only
+        -- - listen_on unix:/tmp/kitty
+        kitty = {
+          enabled = false,
+          font = "+4", -- font size increment
+        },
+        -- this will change the font size on alacritty when in zen mode
+        -- requires  Alacritty Version 0.10.0 or higher
+        -- uses `alacritty msg` subcommand to change font size
+        alacritty = {
+          -- enabled = false,
+          font = "14", -- font size
+        },
+        -- this will change the font size on wezterm when in zen mode
+        -- See alse also the Plugins/Wezterm section in this projects README
+        wezterm = {
+          -- enabled = false,
+          -- can be either an absolute font size or the number of incremental steps
+          font = "+4", -- (10% increase per step)
+        },
+      },
+      on_open = function(win) end,
+      on_close = function() end,
     },
   },
 }
