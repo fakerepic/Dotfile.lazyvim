@@ -6,8 +6,8 @@ debug
 foo.*
 *.log
 data
-stylua.toml
 lazy-lock.json
 LICENSE
 session/*
 lua/plugins/orgmode.lua
+.DS_Store
