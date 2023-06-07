@@ -9,3 +9,5 @@ data
 stylua.toml
 lazy-lock.json
 LICENSE
+session/*
+lua/plugins/orgmode.lua
