@@ -119,8 +119,8 @@ return {
     },
     opts = {
       window = {
-        backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-        -- backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        -- backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
         width = 0.95, -- width of the Zen window
         height = 0.95, -- height of the Zen window
         -- by default, no options are changed for the Zen window

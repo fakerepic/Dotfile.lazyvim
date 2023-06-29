@@ -11,7 +11,7 @@ return {
         },
         -- clangd = {},
         clangd = {
-          mason = false, --use local clangd
+          -- mason = false, --use local clangd
           -- cmd = { "clangd" },
         },
       },
