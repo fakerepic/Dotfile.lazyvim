@@ -26,7 +26,6 @@ return {
     opts = {
       views = {
         hover = {
-          -- border = "rounded", --works, but not nessessary
           win_options = {
             winhighlight = {
               Normal = "NoiceCmdlinePopup",
@@ -62,9 +61,6 @@ return {
     -- enabled = false,
     keys = {
       { "<leader>ug", "<cmd>Gitsigns toggle_signs<CR>", "toggle signs" },
-      -- { "<leader>ug", "<cmd>Gitsigns toggle_linehl<CR>", "toggle signs" },
-      -- { "<leader>gul", "<cmd>Gitsigns toggle_linehl<CR>", "toggle linehl" },
-      -- { "<leader>gun", "<cmd>Gitsigns toggle_numhl<CR>", "toggle numhl" },
     },
     opts = {
       signcolumn = false,
@@ -115,13 +111,13 @@ return {
   {
     "folke/zen-mode.nvim",
     keys = {
-      { "<leader>z", "<cmd>ZenMode<CR>", desc = "zen mode" },
+      { "<leader>z", "<cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
     },
     opts = {
       window = {
-        -- backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-        backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-        width = 0.95, -- width of the Zen window
+        backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        -- backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        -- width = 0.95, -- width of the Zen window
         height = 0.95, -- height of the Zen window
         -- by default, no options are changed for the Zen window
         -- uncomment any of the options below, or add other vim.wo options you want to apply

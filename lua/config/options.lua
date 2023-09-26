@@ -7,7 +7,7 @@ vim.opt.conceallevel = 0
 
 vim.o.pumblend = 0
 
-vim.g.python3_host_prog = "/Users/younglong/miniconda3/bin/python" -- python3 env
+-- vim.g.python3_host_prog = "/Users/younglong/miniconda3/bin/python" -- python3 env
 vim.o.fillchars = "eob: " -- remove the symbol of eol
 
 -- neovide config --

@@ -15,5 +15,3 @@ map("n", "<A-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<A-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 map("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 map("i", "jk", "<ESC>")
--- map({ "n", "t" }, "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Terminal" })
---delete "<lt>"

@@ -31,43 +31,40 @@ return {
         sh = true,
         zsh = true,
         fish = true,
-        -- typst = false,
         -- ["*"] = false,
       },
     },
   },
-  {
-    "jackMort/ChatGPT.nvim",
-    -- event = "<leader>gp",
-    keys = {
-      -- { "<leader>gp" },
-      { "gpt", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
-      { "gpa", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT Act As" },
-      { "gpc", "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT Complete Code" },
-      { "gpe", "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT Edit With Instructions" },
-    },
-    opts = {},
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-  {
-    "dpayne/CodeGPT.nvim",
-    opts = {
-      max_line_length = 300,
-    },
-    keys = {
-      { "<leader>cg" },
-    },
-    config = function()
-      vim.keymap.set("n", "<leader>cg", ":Chat ", {})
-      vim.keymap.set("v", "<leader>cg", ":Chat ", {})
-    end,
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-  },
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   keys = {
+  --     { "gpt", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
+  --     { "gpa", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT Act As" },
+  --     { "gpc", "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT Complete Code" },
+  --     { "gpe", "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT Edit With Instructions" },
+  --   },
+  --   opts = {},
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  -- },
+  -- {
+  --   "dpayne/CodeGPT.nvim",
+  --   opts = {
+  --     max_line_length = 300,
+  --   },
+  --   keys = {
+  --     { "<leader>cg" },
+  --   },
+  --   config = function()
+  --     vim.keymap.set("n", "<leader>cg", ":Chat ", {})
+  --     vim.keymap.set("v", "<leader>cg", ":Chat ", {})
+  --   end,
+  --   requires = {
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  -- },
 }

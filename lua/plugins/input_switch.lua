@@ -1,4 +1,5 @@
 return {
+  -- only for MacOS
   {
     "ybian/smartim",
     event = "InsertEnter",

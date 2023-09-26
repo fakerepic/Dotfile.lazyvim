@@ -51,6 +51,7 @@ return {
         mma = "cd $dir && wolframscript -f $fileName",
         make = "cd $dir && make",
         typst = "cd $dir && (open -a Skim $(basename $fileName .typ).pdf || typst watch $fileName)",
+        html = "cd $dir && open -g $fileName",
       },
     },
   },

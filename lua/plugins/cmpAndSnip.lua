@@ -11,32 +11,6 @@ return {
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
     end,
   },
-
-  {
-    "iurimateus/luasnip-latex-snippets.nvim",
-    -- branch = "markdown",
-    -- replace "lervag/vimtex" with "nvim-treesitter/nvim-treesitter" if you're
-    -- using treesitter.
-    -- requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
-    config = function()
-      -- require("luasnip-latex-snippets").setup({ use_treesitter = true })
-      require("luasnip-latex-snippets").setup()
-      -- or setup({ use_treesitter = true })
-    end,
-    -- ft = { "tex", "markdown" },
-    ft = "tex",
-  },
-
-  {
-    "L3MON4D3/LuaSnip",
-    config = function()
-      require("luasnip").setup({
-        load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
-          markdown = { "latex", "tex" },
-        }),
-      })
-    end,
-  },
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)

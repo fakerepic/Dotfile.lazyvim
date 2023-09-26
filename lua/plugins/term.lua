@@ -1,11 +1,16 @@
 --config toggleterm.nvim using lazy.
-vim.keymap.set({ "n", "t" }, "<C-q>", "<cmd>ToggleTerm<cr>", { desc = "Terminal" })
 return {
   {
     "akinsho/toggleterm.nvim",
-    -- keys = "<leader>t",
-    keys = { { "<C-q>", "<cmd>ToggleTerm<cr>", desc = "Terminal" } },
-    keys = { { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal" } },
+    lazy = false,
+    keys = {
+      { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
+      { "<C-q>", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
+    },
+
+    config = function ()
+      vim.keymap.set({ "n", "t" }, "<C-q>", "<cmd>ToggleTerm<cr>", { desc = "Terminal" })
+    end,
 
     opts = {
       active = true,

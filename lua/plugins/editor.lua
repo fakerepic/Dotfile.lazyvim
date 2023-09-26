@@ -46,7 +46,9 @@ return {
             ["l"] = "open",
           },
         },
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         -- hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
       },
@@ -71,32 +73,6 @@ return {
       },
     },
   },
-
-  -- change some telescope options and a keymap to browse plugin files
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      -- add a keymap to browse plugin files
-      -- stylua: ignore
-      {
-        "<leader>fp",
-        function() require("telescope.builtin").find_files({
-          cwd = require("lazy.core.config").options.root
-        })
-        end,
-        desc = "Find Plugin File",
-      },
-    },
-    -- change some options
-    opts = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
-    },
-  },
   {
     "mg979/vim-visual-multi",
     event = { "BufReadPost", "BufNewFile" },
@@ -104,10 +80,6 @@ return {
       vim.g.VM_case_setting = "sensitive"
       vim.g.VM_theme = "nord"
     end,
-  },
-  {
-    "mini.comment",
-    -- enabled = false,
   },
   {
     "echasnovski/mini.surround",
@@ -120,6 +92,25 @@ return {
         highlight = "gsh",
         replace = "gsr",
         update_n_lines = "gsn",
+      },
+    },
+  },
+  {
+    "nmac427/guess-indent.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      auto_cmd = true,
+      -- A list of filetypes for which the auto command gets disabled
+      filetype_exclude = {
+        "netrw",
+        "tutor",
+      },
+      -- A list of buffer types for which the auto command gets disabled
+      buftype_exclude = {
+        "help",
+        "nofile",
+        "terminal",
+        "prompt",
       },
     },
   },
