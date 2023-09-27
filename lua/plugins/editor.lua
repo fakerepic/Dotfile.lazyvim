@@ -97,7 +97,7 @@ return {
   },
   {
     "nmac427/guess-indent.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       auto_cmd = true,
       -- A list of filetypes for which the auto command gets disabled
