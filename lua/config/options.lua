@@ -7,8 +7,11 @@ vim.opt.conceallevel = 0
 
 vim.o.pumblend = 0
 
--- vim.g.python3_host_prog = "/Users/younglong/miniconda3/bin/python" -- python3 env
 vim.o.fillchars = "eob: " -- remove the symbol of eol
+
+-- NOTE: specify which python to use for pynvim (pip install pynvim)
+-- so that we can use pynvim in any python env / virtualenv
+vim.g.python3_host_prog = "~/miniconda3/bin/python"
 
 -- neovide config --
 if vim.g.neovide then
@@ -34,5 +37,4 @@ if vim.g.neovide then
   vim.keymap.set("n", "<C-->", function()
     change_scale_factor(1 / 1.25)
   end)
-
 end
