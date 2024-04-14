@@ -10,20 +10,6 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
-    { import = "lazyvim.plugins.extras.dap.core" },
-    { import = "lazyvim.plugins.extras.util.project" },
-    { import = "lazyvim.plugins.extras.coding.yanky" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.lang.python-semshi" },
-    { import = "lazyvim.plugins.extras.lang.docker" },
-    { import = "lazyvim.plugins.extras.lang.clangd" },
-    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {
@@ -44,7 +30,6 @@ require("lazy").setup({
         "gzip",
         "matchit",
         "matchparen",
-        -- "netrwPlugin",
         "netrwPlugin",
         "tarPlugin",
         "tohtml",

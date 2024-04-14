@@ -1,0 +1,24 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.coding.copilot",
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.editor.outline",
+    "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.lang.clangd",
+    "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.go",
+    "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.lang.python-semshi",
+    "lazyvim.plugins.extras.lang.rust",
+    "lazyvim.plugins.extras.lang.tailwind",
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.linting.eslint",
+    "lazyvim.plugins.extras.lsp.none-ls",
+    "lazyvim.plugins.extras.util.project"
+  ],
+  "news": {
+    "NEWS.md": "3314"
+  },
+  "version": 3
+}
