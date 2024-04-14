@@ -6,20 +6,20 @@ return {
   -- make edge colors match the theme
   {
     "typicode/bg.nvim",
-    lazy = false,
+    event = "VeryLazy",
   },
 
   -- BELLOW ARE ALL THE COLORSCHEME --
 
+  { "Mofiqul/vscode.nvim", event = "VeryLazy" },
+  { "sainnhe/edge", event = "VeryLazy" },
+  { "projekt0n/github-nvim-theme", event = "VeryLazy" },
   { "savq/melange-nvim", event = "VeryLazy" },
-  { "Shatur/neovim-ayu", event = "VeryLazy" },
-  { "rose-pine/neovim", name = "rose-pine", event = "VeryLazy" },
-  { "atelierbram/Base2Tone-nvim", event = "VeryLazy" },
   { "rmehri01/onenord.nvim", event = "VeryLazy" },
   { "JoosepAlviste/palenightfall.nvim", event = "VeryLazy" },
   { "AlexvZyl/nordic.nvim", event = "VeryLazy" },
   { "EdenEast/nightfox.nvim", event = "VeryLazy" },
-  { "shaunsingh/nord.nvim", event = "VeryLazy" },
+  { "gbprod/nord.nvim", event = "VeryLazy", name = "nord2" },
   { "loctvl842/monokai-pro.nvim", event = "VeryLazy" },
   { "marko-cerovac/material.nvim", event = "VeryLazy" },
 
@@ -33,9 +33,8 @@ return {
     "sainnhe/everforest",
     event = "VeryLazy",
     config = function()
-      -- vim.g.everforest_background = "hard"
+      vim.g.everforest_background = "soft"
       vim.g.everforest_enable_italic = 1
-      vim.g.gruvbox_material_enable_bold = 1
       vim.g.everforest_better_performance = 1
     end,
   },
@@ -88,7 +87,7 @@ return {
       },
       transparent_background = false,
       show_end_of_buffer = false, -- show the '~' characters after the end of buffers
-      term_colors = false,
+      term_colors = true,
       dim_inactive = {
         enabled = true,
         shade = "dark",
@@ -98,19 +97,47 @@ return {
       no_bold = false, -- Force no bold
       styles = {
         comments = { "italic" },
-        conditionals = { "italic" },
-        loops = {},
-        functions = {},
-        keywords = {},
+        properties = { "italic" },
+        functions = { "bold" },
+        keywords = { "italic" },
+        operators = { "bold" },
+        conditionals = { "bold" },
+        loops = { "bold" },
+        booleans = { "bold", "italic" },
+        numbers = {},
+        types = {},
         strings = {},
         variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
       },
       color_overrides = {},
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            NvimTreeNormal = { fg = colors.none },
+            CmpBorder = { fg = "#3e4145" },
+          }
+        end,
+        latte = function(latte)
+          return {
+            Normal = { fg = latte.base },
+          }
+        end,
+        frappe = function(frappe)
+          return {
+            ["@comment"] = { fg = frappe.surface2, style = { "italic" } },
+          }
+        end,
+        macchiato = function(macchiato)
+          return {
+            LineNr = { fg = macchiato.overlay1 },
+          }
+        end,
+        -- mocha = function(mocha)
+        --   return {
+        --     Comment = { fg = mocha.flamingo },
+        --   }
+        -- end,
+      },
       custom_highlights = function(C)
         return {
           CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
@@ -178,6 +205,71 @@ return {
           },
         },
       },
+    },
+  },
+  {
+    "sam4llis/nvim-tundra",
+    event = "VeryLazy",
+    opts = {
+      transparent_background = false,
+      dim_inactive_windows = {
+        enabled = false,
+        color = nil,
+      },
+      sidebars = {
+        enabled = true,
+        color = nil,
+      },
+      editor = {
+        search = {},
+        substitute = {},
+      },
+      syntax = {
+        booleans = { bold = true, italic = true },
+        comments = { bold = true, italic = true },
+        conditionals = {},
+        constants = { bold = true },
+        fields = {},
+        functions = {},
+        keywords = {},
+        loops = {},
+        numbers = { bold = true },
+        operators = { bold = true },
+        punctuation = {},
+        strings = {},
+        types = { italic = true },
+      },
+      diagnostics = {
+        errors = {},
+        warnings = {},
+        information = {},
+        hints = {},
+      },
+      plugins = {
+        lsp = true,
+        semantic_tokens = true,
+        treesitter = true,
+        telescope = true,
+        nvimtree = true,
+        cmp = true,
+        context = true,
+        dbui = true,
+        gitsigns = true,
+        neogit = true,
+        textfsm = true,
+      },
+      overwrite = {
+        colors = {},
+        highlights = {},
+      },
+    },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    event = "VeryLazy",
+    opts = {
+      dim_nc_background = true,
     },
   },
 }

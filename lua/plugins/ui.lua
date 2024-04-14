@@ -1,14 +1,4 @@
 return {
-  {
-    "akinsho/bufferline.nvim",
-    opts = function(_, opts)
-      opts.options.offsets = {
-        {
-          filetype = "neo-tree",
-        },
-      }
-    end,
-  },
   -- use bordered window for nvim-cmp
   {
     "nvim-lspconfig",
@@ -30,8 +20,6 @@ return {
             winhighlight = {
               Normal = "NoiceCmdlinePopup",
               FloatBorder = "NoiceNotify",
-              -- Normal = "Normal",
-              -- FloatBorder = "Normal",
             },
             winblend = vim.o.pumblend,
           },
@@ -48,11 +36,12 @@ return {
   },
   {
     "indent-blankline.nvim",
-    enabled = false,
+    opts = {
+      indent = { char = " " },
+    }
   },
   {
     "gitsigns.nvim",
-    -- enabled = false,
     keys = {
       { "<leader>ug", "<cmd>Gitsigns toggle_signs<CR>", "toggle signs" },
     },
@@ -64,22 +53,38 @@ return {
     "lualine.nvim",
     opts = {
       options = {
-        icons_enabled = true,
-        component_separators = { "", "" },
-        section_separators = { "", "" },
+        component_separators = "",
+        section_separators = { left = "", right = "" },
       },
-      extensions = { "nvim-tree", "quickfix" },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch" },
-        lualine_c = { "filename", "filetype", "encoding", "fileformat" },
-        lualine_y = { "progress", "location" },
+        -- lualine_a = {
+        --   { "mode", separator = { left = "" }, right_padding = 2 },
+        -- },
+        -- lualine_b = { "filename", "branch" },
+        -- lualine_c = { "fileformat" },
+        -- lualine_x = {}, already configed by lazyvim
+        -- lualine_y = { "filetype", "progress" },
+        -- lualine_z = {
+        --   { "location", separator = { right = "" }, left_padding = 2 },
+        -- },
+        -- lualine_y = { "filetype", "progress" },
+        -- lualine_z = { "location" },
+        -- lualine_z = { "location" },
+      },
+      inactive_sections = {
+        lualine_a = { "filename" },
+        lualine_b = {},
+        lualine_c = {},
+        -- lualine_x = {}, already configed by lazyvim
+        lualine_y = {},
+        lualine_z = { "location" },
       },
     },
   },
   {
     "bufferline.nvim",
     event = "BufReadPost",
+    enabled = false,
     opts = {
       options = {
         buffer_close_icon = "",
@@ -91,13 +96,13 @@ return {
         max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
         tab_size = 24,
         show_duplicate_prefix = true,
-        show_buffer_icons = false,
+        show_buffer_icons = true,
         show_buffer_close_icons = false,
         show_close_icon = false,
         show_tab_indicators = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
         separator_style = "thin",
-        enforce_regular_tabs = true,
+        -- enforce_regular_tabs = true,
         -- always_show_bufferline = true,
       },
     },
@@ -110,16 +115,16 @@ return {
     opts = {
       window = {
         backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-        width = 0.95, -- width of the Zen window
+        -- width = 0.95, -- width of the Zen window
         height = 0.95, -- height of the Zen window
         -- by default, no options are changed for the Zen window
         -- uncomment any of the options below, or add other vim.wo options you want to apply
         options = {
           signcolumn = "no", -- disable signcolumn
-          number = false, -- disable number column
-          relativenumber = false, -- disable relative numbers
-          cursorline = false, -- disable cursorline
-          cursorcolumn = false, -- disable cursor column
+          -- number = false, -- disable number column
+          -- relativenumber = false, -- disable relative numbers
+          -- cursorline = false, -- disable cursorline
+          -- cursorcolumn = false, -- disable cursor column
           foldcolumn = "0", -- disable fold column
           list = false, -- disable whitespace characters
         },

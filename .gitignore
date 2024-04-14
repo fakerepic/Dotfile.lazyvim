@@ -9,5 +9,6 @@ data
 lazy-lock.json
 LICENSE
 session/*
-lua/plugins/orgmode.lua
+lua/plugins/dev.lua
 .DS_Store
+.gitignore

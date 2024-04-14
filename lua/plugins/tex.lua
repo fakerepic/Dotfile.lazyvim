@@ -1,14 +1,7 @@
 return {
   {
-    "kaarmu/typst.vim",
-    ft = "typst",
-    lazy = false,
-    init = function()
-      vim.g.typst_pdf_viewer = "skim"
-    end,
-  },
-  {
     "lervag/vimtex",
+    ft = "tex",
     init = function()
       -- vim.opt.conceallevel = 1
       -- vim.g.tex_conceal = "abdmg"
@@ -17,12 +10,6 @@ return {
       vim.g.vimtex_view_skim_sync = 0
       vim.g.vimtex_syntax_enabled = 0
 
-      -- vim.g.vimtex_view_method = "texshop"
-      -- vim.g.vimtex_view_texshop_sync = 1
-      -- not work
-
-      -- vim.g.vimtex_view_general_viewer = "open -g -a texshop" --defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
-
       vim.g.vimtex_format_enabled = 0
       vim.g.vimtex_quickfix_open_on_warning = 0
       vim.g.vimtex_matchparen_enabled = 0
@@ -30,6 +17,7 @@ return {
   },
   {
     "iurimateus/luasnip-latex-snippets.nvim",
+    ft = "tex",
     dependencies = {
       "L3MON4D3/LuaSnip",
       "lervag/vimtex",
@@ -75,11 +63,12 @@ return {
   },
   {
     "andymass/vim-matchup",
+    ft = "tex",
     init = function()
       -- may set any options here
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
       vim.g.matchup_override_vimtex = 1
-      vim.g.matchup_matchparen_deferred = 1
+      vim.g.matchup_matchparen_deferred = 0
     end,
   },
 }

@@ -12,7 +12,12 @@ return {
         },
         -- When `auto_trigger` is `false`, use the `next` or `prev` keymap to trigger copilot suggestion.
       },
-      panel = { enabled = true },
+      panel = {
+        enabled = true,
+        keymap = {
+          open = "<C-P>",
+        },
+      },
       filetypes = {
         lua = true,
         rust = true,
@@ -35,36 +40,4 @@ return {
       },
     },
   },
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   keys = {
-  --     { "gpt", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
-  --     { "gpa", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT Act As" },
-  --     { "gpc", "<cmd>ChatGPTCompleteCode<cr>", desc = "ChatGPT Complete Code" },
-  --     { "gpe", "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT Edit With Instructions" },
-  --   },
-  --   opts = {},
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  -- },
-  -- {
-  --   "dpayne/CodeGPT.nvim",
-  --   opts = {
-  --     max_line_length = 300,
-  --   },
-  --   keys = {
-  --     { "<leader>cg" },
-  --   },
-  --   config = function()
-  --     vim.keymap.set("n", "<leader>cg", ":Chat ", {})
-  --     vim.keymap.set("v", "<leader>cg", ":Chat ", {})
-  --   end,
-  --   requires = {
-  --     "nvim-lua/plenary.nvim",
-  --     "MunifTanjim/nui.nvim",
-  --   },
-  -- },
 }

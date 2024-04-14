@@ -1,16 +1,5 @@
 return {
-  -- override nvim-cmp and add cmp-emoji
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-emoji",
-    },
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local cmp = require("cmp")
-      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
-    end,
-  },
+  -- ui config: bordered window
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
@@ -23,6 +12,19 @@ return {
       })
     end,
   },
+  -- override nvim-cmp and add cmp-emoji
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-emoji",
+    },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      local cmp = require("cmp")
+      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+    end,
+  },
+  -- ui config: lspkind
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "onsails/lspkind.nvim" },
@@ -75,6 +77,17 @@ return {
           return kind
         end,
       }
+    end,
+  },
+  -- disable preselect
+  {
+    "hrsh7th/nvim-cmp",
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      local cmp = require("cmp")
+      opts.preselect = cmp.PreselectMode.None
+      opts.completion = { completeopt = "menu,menuone,noselect" }
+      opts.mapping["<CR>"] = cmp.mapping.confirm({ select = false })
     end,
   },
 }
